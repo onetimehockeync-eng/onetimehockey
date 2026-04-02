@@ -305,18 +305,18 @@ const ADVANCED = [
     video: "https://www.youtube.com/embed/Laz-TCH5BHU"
   },
   {
-    id:'A4', name:'Wall Ball — Heads Up Pass/Receive', tag:'game', duration:'1 min / 4 sets',
+    id:'A4', name:'Wall Ball — Heads Up Pass/Receive', tag:'game', duration:'30 seconds / 3 sets',
     desc:'Find a wall and pass and receive with your head up — both forehand and backhand. Trains the receive-deke connection all game situations demand.',
     steps:[
       'Pass puck against a rebound surface',
       'Receive the pass — cushion it, don\'t stab at it',
       'Immediately transition into handles or a deke — no pause',
       'Both forehand and backhand passing and receiving',
-      'If you find a corner you can work all angles simultaneously'
+      'If you find a corner you can work FH & BH simultaneously'
     ],
-    tip:'Make firm passes and receive with soft hands. If you can find a corner you can work on angled passes as well. Head up the entire time.',
+    tip:'Be smooth and find a rhythm. If you can find a corner you can work on angled passes as well. Head up the entire time.',
     keyPoints:['Top Hand Manipulation','Bottom Hand Support','Conditioning','Rhythm','Scanning'],
-    video: VIDEO_PLACEHOLDER
+    video: "https://www.youtube.com/embed/cKzGmnM-qtQ"
   },
   {
     id:'A5', name:'Wall Ball — Speed', tag:'game', duration:'30 seconds / 3 sets',
