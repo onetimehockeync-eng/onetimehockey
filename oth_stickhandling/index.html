@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>One Time Hockey - Silky Mitts Stickhandling Program</title>
+<meta name="description" content="A structured hockey stickhandling program: Foundation, Advanced, and Tricks. 24 drills with video demonstrations.">
+<link rel="stylesheet" href="css/style.css">
+<!-- Supabase CDN -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<!-- OTH identity layer — load before main.js -->
+<script src="js/supabase.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/auth-ui.js"></script>
+</head>
+<body>
+<!-- ── OTH Auth Panel ──────────────────────────────────────────── -->
+<!-- Auth Modal -->
+<div id="oth-modal-bg" style="
+display:none; position:fixed; inset:0; background:rgba(0,0,0,.7);
+z-index:500; align-items:center; justify-content:center;">
+<div style="
+background:#0f1829; border:1px solid rgba(255,255,255,.1); border-radius:14px;
+padding:2rem; width:min(420px,92vw); color:#e8eaf0; position:relative;">
+<button onclick="OTHModal.close()" style="
+position:absolute; top:1rem; right:1rem; background:none; border:none;
+color:#aaa; font-size:1.3rem; cursor:pointer;">✕</button>
+<div id="oth-modal-body"></div>
+</div>
+</div>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">OTH <span>·</span> Silky Mitts</a>
+
+    <div id="oth-nav-auth" style="display:flex; align-items:center; gap:1rem; margin-left:auto; margin-right:1.5rem; font-size:.85rem;">
+      <span id="oth-auth-status" style="opacity:.7; color:var(--white)">Loading…</span>
+      <div id="oth-auth-actions" style="display:flex; gap:.6rem; align-items:center"></div>
+    </div>
+
+    <ul class="nav-links" style="display:flex">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="foundation.html">Foundation</a></li>
+      <li><a href="advanced.html">Advanced</a></li>
+      <li><a href="tricks.html">Tricks</a></li>
+      <li><a href="guide.html" class="nav-cta">Full Guide</a></li>
+    </ul>
+    <button class="burger" aria-label="Open menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mob-overlay"><button class="mob-close">✕</button>
+  <a href="index.html">Home</a>
+  <a href="foundation.html">Foundation</a>
+  <a href="advanced.html">Advanced</a>
+  <a href="tricks.html">Tricks</a>
+  <a href="guide.html" class="mob-cta">Full Guide</a>
+</div>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-tag fu">One Time Hockey · Montreal Lane</div>
+    <h1 class="hero-title fu fu-1">Puck<span class="accent">Control.</span></h1>
+    <p class="hero-sub fu fu-2">24 drills. 3 levels. Foundation, Advanced, and Tricks — built for players who want to own the puck with confidence.</p>
+    <div class="hero-levels fu fu-3">
+      <span class="level-pill pill-f">Foundation — 9 drills</span>
+      <span class="level-pill pill-a">Advanced — 6 drills</span>
+      <span class="level-pill pill-t">Tricks — 9 drills</span>
+    </div>
+    <div class="hero-video-col fu fu-5">
+        <div class="vid-wrap">
+          <iframe src="https://www.youtube.com/embed/u3RpqStjTSI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </div>
+    <div class="btn-row fu fu-4">
+      <a href="foundation.html" class="btn btn-red">Start Training</a>
+      <a href="guide.html" class="btn btn-outline">Full Reference Guide</a>
+    </div>
+  </div>
+</section>
+
+<div class="stat-bar"><div class="stat-inner">
+  <div><div class="stat-val">24</div><div class="stat-lbl">Total Drills</div></div>
+  <div><div class="stat-val">3</div><div class="stat-lbl">Skill Levels</div></div>
+  <div><div class="stat-val">Video</div><div class="stat-lbl">Demo Each Drill</div></div>
+</div></div>
+
+<section class="sec-sm bg-nmd">
+  <div class="wrap">
+    <div class="prog-section">
+      <div class="prog-top"><span class="prog-title">Your Progress</span><span class="prog-count" id="prog-count">0/24</span></div>
+      <div class="prog-track"><div class="prog-fill" id="prog-fill"></div></div>
+      <div class="prog-sub" id="prog-label">0% — start with Foundation</div>
+      <div class="prog-levels">
+        <div class="prog-level"><div class="prog-level-val" id="prog-foundation">0/9</div><div class="prog-level-lbl">Foundation</div></div>
+        <div class="prog-level"><div class="prog-level-val" id="prog-advanced">0/6</div><div class="prog-level-lbl">Advanced</div></div>
+        <div class="prog-level"><div class="prog-level-val" id="prog-tricks">0/9</div><div class="prog-level-lbl">Tricks</div></div>
+      </div>
+    </div>
+    <p style="font-size:.82rem;color:var(--ice-dim);text-align:right;cursor:pointer;text-decoration:underline" onclick="resetProgress()">Reset progress</p>
+  </div>
+</section>
+
+<section class="sec" style="background:var(--navy)">
+  <div class="wrap">
+    <span class="sec-tag sec-tag-lt">Program Design</span>
+    <h2 class="sec-title" style="color:var(--white);margin-bottom:.75rem">How This Works.</h2>
+    <p style="color:var(--ice-dim);font-size:1.02rem;line-height:1.75;max-width:640px;margin-bottom:2.5rem">Confidence with the puck is a product of specific repetitions done in the right order. Each level builds the hands the next level demands. Check off each drill when you can do it eyes-up at game speed — that is the only standard that counts.</p>
+    <div class="principle-grid">
+      <div class="principle-card"><h3>Top hand first</h3><p>Your top hand controls 80% of every stickhandling movement. The Top-Hand Only drill builds this faster than anything else. Run it every session, even after you advance.</p></div>
+      <div class="principle-card"><h3>Slow before fast</h3><p>Every move has a speed progression. Master the motion slowly and cleanly before adding speed. Fast and sloppy wires the wrong habit — you will have to un-learn it.</p></div>
+      <div class="principle-card"><h3>Eyes up</h3><p>Gather information to track defenders and see passing lanes. Depending on the situation you will scan closer or further away. In traffic you look just beyond your stick to see immediate threats. When you have more time you are able to look further ahead. Do not stare at the puck. Slow down before you look down. Over time the speed will come.</p></div>
+      <div class="principle-card"><h3>Tricks build confidence</h3><p>The pickups, juggles, and windmill are not decoration. They build spatial awareness, soft hands, and the blade feel that makes all your other moves sharper and more automatic.</p></div>
+      <div class="principle-card"><h3>Mastery standard</h3><p>Complete every drill eyes-up at game speed. Try to be smooth and efficient. This only comes through repetition.</p></div>
+      <div class="principle-card"><h3>Video on every drill</h3><p>Each drill card includes a video demonstration. The videos can be watched directly from this site or you can watch them on YouTube. Don't forget to subscribe to One Time Hockey on YouTube.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="bg-off" style="padding:4rem 0">
+  <div class="wrap">
+    <span class="sec-tag">Before You Start</span>
+    <h2 class="sec-title" style="color:var(--navy);margin-bottom:2rem">What You Need.</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1rem">
+      <div style="background:var(--white);border:1px solid rgba(0,0,0,.08);border-radius:12px;padding:1.5rem">
+        <div style="font-family:var(--fc);font-weight:800;font-size:.95rem;letter-spacing:.04em;color:var(--navy);margin-bottom:.7rem">Essential gear</div>
+        <ul style="display:flex;flex-direction:column;gap:.5rem;font-size:.9rem;color:var(--mid);line-height:1.6">
+          <li>Hockey stick (your regular game stick)</li>
+          <li>Puck or ball</li>
+          <li>Ice, shooting pad, smooth concrete</li>
+        </ul>
+      </div>
+      <div style="background:var(--white);border:1px solid rgba(0,0,0,.08);border-radius:12px;padding:1.5rem">
+        <div style="font-family:var(--fc);font-weight:800;font-size:.95rem;letter-spacing:.04em;color:var(--navy);margin-bottom:.7rem">For tricks &amp; juggling</div>
+        <ul style="display:flex;flex-direction:column;gap:.5rem;font-size:.9rem;color:var(--mid);line-height:1.6">
+          <li>Tennis ball for Ball Juggle drill</li>
+          <li>extra stick for jump deke practice</li>
+          <li>5–8 small markers</li>
+        </ul>
+      </div>
+      <div style="background:var(--white);border:1px solid rgba(0,0,0,.08);border-radius:12px;padding:1.5rem">
+        <div style="font-family:var(--fc);font-weight:800;font-size:.95rem;letter-spacing:.04em;color:var(--navy);margin-bottom:.7rem">In the Montreal lane</div>
+        <ul style="display:flex;flex-direction:column;gap:.5rem;font-size:.9rem;color:var(--mid);line-height:1.6">
+          <li>Self-lubricating synthetic ice surface</li>
+          <li>Rapid Hands stickhandling system</li>
+          <li>2 regulation nets</li>
+          <li>Cones and wall rebound surface available</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="bg-red" style="padding:4.5rem 0;text-align:center">
+  <div class="wrap">
+    <h2 style="font-family:var(--fd);font-size:clamp(2rem,5vw,3.5rem);letter-spacing:.04em;color:var(--white);margin-bottom:.75rem">Ready to Work?</h2>
+    <p style="font-family:var(--fc);font-size:1.05rem;color:rgba(255,255,255,.85);margin-bottom:2rem">Start with Foundation. Do not skip it.</p>
+    <a href="foundation.html" class="btn btn-outline" style="border-color:rgba(255,255,255,.5)">Begin Foundation Level →</a>
+  </div>
+</section>
+
+<footer class="footer"><div class="wrap"><div class="foot-grid">
+  <div>
+    <div class="foot-logo">One Time <span>Hockey</span></div><p class="foot-tagline">"You may only get 'One Time' to prove yourself. Will you be ready?"</p></div>
+  <div><div class="foot-hdg">OTH Silky Mitts</div><ul class="foot-links">
+    <li><a href="index.html">Overview</a></li>
+    <li><a href="foundation.html">Foundation</a></li>
+    <li><a href="advanced.html">Advanced</a></li>
+    <li><a href="tricks.html">Tricks</a></li>
+    <li><a href="guide.html">Full Guide</a></li>
+  </ul></div>
+  <div><div class="foot-hdg">Facility</div><ul class="foot-links">
+    <li><a href="../index.html">OTH Home</a></li>
+    <li><a href="../lanes.html">The Six Lanes</a></li>
+    <li><a href="../book.html">Book a Lane</a></li>
+    <li><a href="../pricing.html">Pricing</a></li>
+    <li><a href="../contact.html">Contact</a></li>
+  </ul></div>
+</div></div><div class="foot-bar"><div class="wrap">© 2026 One Time Hockey LLC · Raleigh, NC · Silky Mitts Stickhandling Program</div></div></footer>
+<script src="js/main.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Full Reference Guide — Silky Mitts Stickhandling Program | One Time Hockey</title>
+<meta name="description" content="Complete printable reference for the One Time Hockey stickhandling program. All 23 drills across Foundation, Tricks, and Advanced levels.">
+<link rel="stylesheet" href="css/style.css">
+<!-- Supabase CDN -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<!-- OTH identity layer — load before main.js -->
+<script src="js/supabase.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/auth-ui.js"></script>
+<style>
+@media print{
+  .nav,.burger,.mob-overlay,.btn-row,.btn,.drill-check,.expand-btn,.video-placeholder,.video-wrap{display:none!important}
+  body{background:#fff;color:#000;padding-top:0}
+  .pg-hero{background:#1A3A5C;color:#fff}
+  .guide-table th{background:#1A3A5C;color:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .guide-table td{color:#333;border:1px solid #ccc}
+  .guide-table tr:nth-child(even) td{background:#f5f5f5;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+</style>
+</head>
+<body>
+<!-- ── OTH Auth Panel ──────────────────────────────────────────── -->
+<!-- Auth Modal -->
+<div id="oth-modal-bg" style="
+display:none; position:fixed; inset:0; background:rgba(0,0,0,.7);
+z-index:500; align-items:center; justify-content:center;">
+<div style="
+background:#0f1829; border:1px solid rgba(255,255,255,.1); border-radius:14px;
+padding:2rem; width:min(420px,92vw); color:#e8eaf0; position:relative;">
+<button onclick="OTHModal.close()" style="
+position:absolute; top:1rem; right:1rem; background:none; border:none;
+color:#aaa; font-size:1.3rem; cursor:pointer;">✕</button>
+<div id="oth-modal-body"></div>
+</div>
+</div>
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">OTH <span>·</span> Silky Mitts</a>
+
+    <div id="oth-nav-auth" style="display:flex; align-items:center; gap:1rem; margin-left:auto; margin-right:1.5rem; font-size:.85rem;">
+      <span id="oth-auth-status" style="opacity:.7; color:var(--white)">Loading…</span>
+      <div id="oth-auth-actions" style="display:flex; gap:.6rem; align-items:center"></div>
+    </div>
+
+    <ul class="nav-links" style="display:flex">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="foundation.html">Foundation</a></li>
+      <li><a href="advanced.html">Advanced</a></li>
+      <li><a href="tricks.html">Tricks</a></li>
+      <li><a href="guide.html" class="nav-cta">Full Guide</a></li>
+    </ul>
+    <button class="burger" aria-label="Open menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mob-overlay"><button class="mob-close">✕</button>
+  <a href="index.html">Home</a>
+  <a href="foundation.html">Foundation</a>
+  <a href="advanced.html">Advanced</a>
+  <a href="tricks.html">Tricks</a>
+  <a href="guide.html" class="mob-cta">Full Guide</a>
+</div>
+
+<section class="pg-hero" style="border-bottom:3px solid var(--red)">
+  <div class="wrap">
+    <span class="sec-tag sec-tag-lt">Complete Reference</span>
+    <h1 class="sec-title" style="color:var(--white);font-size:clamp(2.5rem,7vw,5rem);letter-spacing:.04em">Full Program Guide.</h1>
+    <p style="color:var(--ice-dim);margin-top:.75rem;font-size:1.02rem;max-width:580px;line-height:1.72">All 24 drills in one place. Print this and bring it to the rink.</p>
+    <div class="btn-row" style="margin-top:1.5rem">
+      <button onclick="window.print()" class="btn btn-red">Print This Guide</button>
+    </div>
+  </div>
+</section>
+
+<section class="sec bg-nmd">
+  <div class="wrap">
+    <span class="sec-tag sec-tag-gold">At a Glance</span>
+    <h2 class="sec-title" style="color:var(--white);margin-bottom:1.5rem">Program Overview</h2>
+    <table class="guide-table">
+      <thead><tr><th>Level</th><th>Focus</th><th>Drills</th><th>Prerequisite</th><th>Mastery Standard</th></tr></thead>
+      <tbody>
+        <tr><td style="color:#4ade80;font-weight:700">Foundation</td><td>Puck feel, soft hands, muscle memory</td><td>9 drills</td><td>None — start here</td><td>All 9 eyes-up at game speed</td></tr>
+        <tr><td style="color:#f87171;font-weight:700">Advanced</td><td>Game dekes, wall ball, ball juggle</td><td>6 drills</td><td>Foundation complete</td><td>Execute at game speed, eyes up</td></tr>
+        <tr><td style="color:var(--gold);font-weight:700">Tricks</td><td>Pickups, juggles, blade awareness</td><td>9 drills</td><td>Foundation &amp; Advanced complete</td><td>Clean reps each</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="sec" style="background:var(--navy)">
+  <div class="wrap">
+    <div class="level-badge badge-f" style="margin-bottom:1.25rem">Foundation — 9 Drills</div>
+    <table class="guide-table">
+      <thead><tr><th style="width:12%">ID</th><th style="width:20%">Drill</th><th style="width:8%">Tag</th><th style="width:12%">Duration</th><th>Description</th><th>Coach Tip</th></tr></thead>
+      <tbody>
+        <tr><td style="color:var(--ice);font-weight:700">F1</td><td style="color:var(--white);font-weight:600">Around the World</td><td><span class="dtag dtag-foundation">foundation</span></td><td>3x each dir / 3 sets</td><td>Full circle around body. Top hand manipulates blade — bottom hand supports.</td><td>The stick twists in your hands throughout. Keep it controlled and smooth.</td></tr>
+        <tr><td style="color:var(--ice);font-weight:700">F2</td><td style="color:var(--white);font-weight:600">Side to Side — Full Reach</td><td><span class="dtag dtag-foundation">foundation</span></td><td>30 sec / 3 sets</td><td>Reach puck far outside each foot.</td><td>Work on being smooth. Head Up.</td></tr>
+        <tr><td style="color:var(--ice);font-weight:700">F3</td><td style="color:var(--white);font-weight:600">Toe Drag — Stationary</td><td><span class="dtag dtag-foundation">foundation</span></td><td>30 sec / 3 sets</td><td>Use the toe of blade to pull the puck back — pull across to the backhand.</td><td>Move lateral — not forward. Defender is in front of you.</td></tr>
+        <tr><td style="color:var(--ice);font-weight:700">F4</td><td style="color:var(--white);font-weight:600">Pull to Skate</td><td><span class="dtag dtag-foundation">foundation</span></td><td>10 reps / 3 sets FH&amp;BH</td><td>Pull puck to skate toe and kick back. Forehand and backhand.</td><td>Add quick handles between reps. Move your feet. Stay loose.</td></tr>
+        <tr><td style="color:var(--ice);font-weight:700">F5</td><td style="color:var(--white);font-weight:600">Quick Handles</td><td><span class="dtag dtag-foundation">foundation</span></td><td>30 sec / 5 sets</td><td>Rapid micro-taps. Top hand rotates — don't chop. 4–6 inches each side.</td><td>This is all about the top hand. Don't tighten your shoulder. Stay loose.</td></tr>
+        <tr><td style="color:var(--ice);font-weight:700">F6</td><td style="color:var(--white);font-weight:600">Top-Hand Only</td><td><span class="dtag dtag-conditioning">conditioning</span></td><td>30 sec / 3 sets</td><td>Remove bottom hand. Dribble with top hand only. 30 continuous seconds.</td><td>If forearm burns by 30 sec — add wrist/forearm training off ice.</td></tr>
+        <tr><td style="color:var(--ice);font-weight:700">F7</td><td style="color:var(--white);font-weight:600">Dangles</td><td><span class="dtag dtag-foundation">foundation</span></td><td>30 sec / 4 sets</td><td>Two pucks (small objects) 18" apart. Figure-8 both directions. Progress to 12".</td><td>Stay loose. Find a rhythm. Move your feet.</td></tr>
+        <tr><td style="color:var(--ice);font-weight:700">F8</td><td style="color:var(--white);font-weight:600">Minefield — Eyes Up</td><td><span class="dtag dtag-game">game</span></td><td>30 sec / 3 sets</td><td>Place 6–8 small objects in a random pattern.</td><td>Your brain knows where the obstacles are. Trust yourself. Eyes up.</td></tr>
+        <tr><td style="color:var(--ice);font-weight:700">F8</td><td style="color:var(--white);font-weight:600">Flowstyle</td><td><span class="dtag dtag-game">game</span></td><td>30 sec / 3 sets</td><td>Stickhandle freely with no restrictions, eyes up the whole time.</td><td>The brain runs the hands. Let your hands go. Stream of consciousness stickhandling..</td></tr>
+      </tbody>
+    </table>
+
+    <div class="level-badge badge-a" style="margin-top:2.5rem;margin-bottom:1.25rem">Advanced — 6 Drills</div>
+    <table class="guide-table">
+      <thead><tr><th style="width:12%">ID</th><th style="width:20%">Drill</th><th style="width:8%">Tag</th><th style="width:12%">Duration</th><th>Description</th><th>Coach Tip</th></tr></thead>
+      <tbody>
+        <tr><td style="color:var(--ice);font-weight:700">A1</td><td style="color:var(--white);font-weight:600">Shot Fake — FH to BH</td><td><span class="dtag dtag-game">game</span></td><td>10 reps / 3 sets</td><td>Load fake shot → kill puck dead → backhand drag across → finish with forward step.</td><td>Sell the shot. If defender doesn't believe you'll shoot, they won't bite.</td></tr>
+        <tr><td style="color:var(--ice);font-weight:700">A2</td><td style="color:var(--white);font-weight:600">Between-the-Legs</td><td><span class="dtag dtag-game">game</span></td><td>10 reps / 3 sets each</td><td>4 variations: front leg forward, front leg back, off skate FH, off skate BH.</td><td>Bend down to widen space between legs. Head up.</td></tr>
+        <tr><td style="color:var(--ice);font-weight:700">A3</td><td style="color:var(--white);font-weight:600">Jump Deke — Chip Over Stick</td><td><span class="dtag dtag-game">game</span></td><td>3 reps / 3 sets FH&amp;BH</td><td>Lay stick on ice. Chip puck 3–6 inches over it — forehand and backhand.</td><td>Use peripherals. 3–6 inches is enough. Move your feet.</td></tr>
+        <tr><td style="color:var(--ice);font-weight:700">A4</td><td style="color:var(--white);font-weight:600">Wall Ball — Heads Up</td><td><span class="dtag dtag-game">game</span></td><td>1 min / 4 sets</td><td>Pass and receive off wall — FH and BH — head up the entire time. Cushion, no stab.</td><td>Firm passes, soft hands on receive. Find a corner for angled passes.</td></tr>
+        <tr><td style="color:var(--ice);font-weight:700">A5</td><td style="color:var(--white);font-weight:600">Wall Ball — Speed</td><td><span class="dtag dtag-game">game</span></td><td>30 sec / 3 sets</td><td>5 feet from wall. One-touch passing as fast as possible. Find rhythm then push harder.</td><td>Head up. Aim for a spot and hit it. Challenge yourself each set.</td></tr>
+        <tr><td style="color:var(--ice);font-weight:700">A6</td><td style="color:var(--white);font-weight:600">Ball Juggle</td><td><span class="dtag dtag-trick">trick</span></td><td>50+ reps</td><td>Juggle a tennis ball with your stick blade. 50+ consecutive reps. Beat your record.</td><td>Concentrate. Relax your shoulders. The tennis ball demands greater blade sensitivity.</td></tr>
+      </tbody>
+    </table>
+
+    <div class="level-badge badge-t" style="margin-top:2.5rem;margin-bottom:1.25rem">Tricks — 9 Drills</div>
+    <table class="guide-table">
+      <thead><tr><th style="width:12%">ID</th><th style="width:20%">Drill</th><th style="width:8%">Tag</th><th style="width:12%">Duration</th><th>Description</th><th>Coach Tip</th></tr></thead>
+      <tbody>
+        <tr><td style="color:var(--ice);font-weight:700">T1</td><td style="color:var(--white);font-weight:600">Pancake Pickup</td><td><span class="dtag dtag-trick">trick</span></td><td>10 pickups</td><td>Slide blade under puck and scoop. Hold on blade. Gently return.</td><td>Scoop and hold IS the skill. Be automatic before juggling.</td></tr>
+        <tr><td style="color:var(--ice);font-weight:700">T2</td><td style="color:var(--white);font-weight:600">Toe Pickup</td><td><span class="dtag dtag-trick">trick</span></td><td>10 pickups</td><td>Toe on far edge — bottom hand thumb levers blade under. Pop up.</td><td>Easier while moving. Practice stationary until wrist motion is automatic.</td></tr>
+        <tr><td style="color:var(--ice);font-weight:700">T3</td><td style="color:var(--white);font-weight:600">Scoop Pickup</td><td><span class="dtag dtag-trick">trick</span></td><td>10 pickups</td><td>Toe drag → drop hands → heel contact → slice under. Momentum carries puck onto blade.</td><td>Easier on ice with momentum. Work stationary until blade angle is automatic.</td></tr>
+        <tr><td style="color:var(--ice);font-weight:700">T4</td><td style="color:var(--white);font-weight:600">Forehand Juggle</td><td><span class="dtag dtag-trick">trick</span></td><td>10 juggles</td><td>Pickup → 1/2 revolution → catch on forehand blade. 10 clean reps.</td><td>Bend knees for greater catch control. Eye on rotation — not blade.</td></tr>
+        <tr><td style="color:var(--ice);font-weight:700">T5</td><td style="color:var(--white);font-weight:600">Forehand–Backhand Juggle</td><td><span class="dtag dtag-trick">trick</span></td><td>10 juggles FH&amp;BH</td><td>Toss from FH → catch on BH → flip back to FH. Alternating.</td><td>Rotate hands early to prepare for catch — don't wait until the puck is falling.</td></tr>
+        <tr><td style="color:var(--ice);font-weight:700">T6</td><td style="color:var(--white);font-weight:600">High Juggle</td><td><span class="dtag dtag-trick">trick</span></td><td>5 juggles</td><td>Full revolution toss — catch on forehand. Track rotation all the way down.</td><td>Eye on the puck's spin — not its height. Soft hands on catch.</td></tr>
+        <tr><td style="color:var(--ice);font-weight:700">T7</td><td style="color:var(--white);font-weight:600">Stick Walk Juggle</td><td><span class="dtag dtag-trick">trick</span></td><td>5 juggles</td><td>Pickup → walk to heel with 1/2 rev → launch straight up → catch on blade.</td><td>Practice heel-to-blade transition separately before connecting full pattern.</td></tr>
+        <tr><td style="color:var(--ice);font-weight:700">T8</td><td style="color:var(--white);font-weight:600">Zoro — Air</td><td><span class="dtag dtag-trick">trick</span></td><td>5 reps</td><td>Pickup → roll bottom hand over top → puck spins around blade → return. 5 reps.</td><td>Find consistent rhythm before adding speed. Wrist coordination — don't muscle it.</td></tr>
+        <tr><td style="color:var(--ice);font-weight:700">T9</td><td style="color:var(--white);font-weight:600">Windmill</td><td><span class="dtag dtag-trick">trick</span></td><td>5 reps</td><td>Pickup → bottom hand up and around → centripetal force holds puck → 5 complete rotations.</td><td>Consistent speed is the entire skill. Hesitation drops the puck.</td></tr>
+      </tbody>
+    </table>
+
+    <div style="text-align:center;margin-top:2.5rem">
+      <button onclick="window.print()" class="btn btn-red">Print This Guide</button>
+      <a href="../book.html" class="btn btn-gold" style="margin-left:.75rem">Book the Montreal Lane →</a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer"><div class="wrap"><div class="foot-grid">
+  <div><div class="foot-logo">One Time <span>Hockey</span></div><p class="foot-tagline">"You may only get 'One Time' to prove yourself. Will you be ready?"</p></div>
+  <div><div class="foot-hdg">OTH Silky Mitts</div><ul class="foot-links">
+    <li><a href="index.html">Overview</a></li>
+    <li><a href="foundation.html">Foundation</a></li>
+    <li><a href="advanced.html">Advanced</a></li>
+    <li><a href="tricks.html">Tricks</a></li>
+    <li><a href="guide.html">Full Guide</a></li>
+  </ul></div>
+  <div><div class="foot-hdg">Facility</div><ul class="foot-links">
+    <li><a href="../index.html">OTH Home</a></li>
+    <li><a href="../lanes.html">The Six Lanes</a></li>
+    <li><a href="../book.html">Book a Lane</a></li>
+    <li><a href="../pricing.html">Pricing</a></li>
+    <li><a href="../contact.html">Contact</a></li>
+  </ul></div>
+</div></div><div class="foot-bar"><div class="wrap">© 2026 One Time Hockey LLC · Raleigh, NC · Silky Mitts Stickhandling Program</div></div></footer>
+<script src="js/main.js"></script>
+</body>
+</html>
