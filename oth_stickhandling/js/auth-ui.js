@@ -166,7 +166,7 @@
     modal.open(`
       <h2 style="margin:0 0 1rem">Check your email ✓</h2>
       <p style="color:#aaa">We sent a confirmation link to <strong style="color:#fff">${email}</strong>.
-      Click it to activate your account, then come back and sign in.</p>
+      The email will come from Supabase Auth. Click the link in the email to activate your account, then come back and sign in.</p>
       <button onclick="OTHModal.close()" style="
         display:block;width:100%;margin-top:1.5rem;background:#e04050;
         color:#fff;border:none;border-radius:8px;padding:.75rem;
