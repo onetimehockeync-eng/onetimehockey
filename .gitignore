@@ -1,0 +1,33 @@
+# --- IDE / Editor Files ---
+.vs/
+*.user
+*.userosscache
+*.sln.docstates
+.vscode/
+.idea/
+*.swp
+*.log
+
+# --- OS Metadata ---
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# --- Node / Dependencies (if you use them later) ---
+node_modules/
+npm-debug.log*
+yarn-error.log*
+
+# --- Environment / Secrets ---
+# Never commit your Supabase service role keys or personal secrets
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# --- Build / Temp ---
+[Bb]in/
+[Oo]bj/
+dist/
+out/
