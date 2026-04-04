@@ -80,7 +80,7 @@
           ${avatarHTML}
           <span style="opacity:.9">${email}</span>
         </div>`;
-      actionsEl.innerHTML = btn('Sign out', 'OTHAuthUI.signOut()');
+      actionsEl.innerHTML = `<button onclick="OTHAuthUI.signOut()" class="is-signout" style="background:#e04050;color:#fff;border:none;border-radius:6px;padding:.35rem .8rem;font-size:.8rem;cursor:pointer;font-family:inherit;white-space:nowrap;font-weight:500">Sign out</button>`;
 
     } else if (mode === 'pin') {
       const pin = A().getPin();
