@@ -52,6 +52,34 @@ button{cursor:pointer;border:none;font:inherit}
 .mob-close{position:absolute;top:16px;right:1.25rem;background:transparent;color:var(--white);font-size:1.8rem;padding:.5rem}
 .mob-cta{background:var(--red);border-radius:var(--r);padding:.5rem 2rem!important;margin-top:.75rem}
 
+/* ── AUTH BAR ─────────────────────────────────────────────── */
+#oth-auth-bar{
+  display:none;
+  background:#0b1221;
+  color:#e8eaf0;
+  font-family:var(--fb);
+  padding:.6rem 1.2rem;
+  align-items:center;
+  justify-content:space-between;
+  gap:1rem;
+  flex-wrap:wrap;
+  font-size:.82rem;
+  border-bottom:1px solid rgba(255,255,255,.07);
+  position:sticky;
+  top:0;
+  z-index:200;
+}
+.mob-auth{display:flex;flex-direction:column;align-items:center;gap:.75rem;margin-top:1.5rem;margin-bottom:1.5rem;width:100%;padding:0 2rem}
+.mob-auth-status{font-family:var(--fc);font-size:.95rem;color:var(--white);text-align:center;min-height:1.2rem}
+.mob-auth-status strong{color:#e04050;letter-spacing:.08em}
+.mob-auth-actions{display:flex;gap:.5rem;flex-wrap:wrap;justify-content:center}
+.mob-auth-btn{font-family:var(--fc);font-weight:600;font-size:.9rem;letter-spacing:.04em;border:none;border-radius:6px;padding:.45rem 1rem;cursor:pointer;white-space:nowrap}
+.mob-auth-btn-ghost{background:rgba(255,255,255,.1);color:#fff}
+.mob-auth-btn-primary{background:var(--green);color:#fff}
+.mob-auth-btn-danger{background:#e04050;color:#fff}
+.mob-auth-avatar{width:28px;height:28px;border-radius:50%;object-fit:cover}
+.mob-auth-initial{width:28px;height:28px;border-radius:50%;background:var(--green);color:#fff;font-size:.8rem;font-weight:700;display:flex;align-items:center;justify-content:center}
+.mob-overlay-divider{width:60%;height:1px;background:rgba(255,255,255,.1);margin:.5rem 0}
 /* ── HERO ─────────────────────────────────────────────────── */
 .hero{min-height:85vh;display:flex;align-items:center;background:var(--navy);position:relative;overflow:hidden}
 .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 20% 60%,rgba(200,16,46,.1) 0%,transparent 55%);pointer-events:none}
@@ -231,6 +259,9 @@ button{cursor:pointer;border:none;font:inherit}
   .principle-grid{grid-template-columns:repeat(2,1fr)}
 }
 @media(min-width:768px){
+   #oth-auth-bar{display:flex}
+   #oth-auth-actions button:last-child{background:var(--green)!important}
+   #oth-auth-actions button.is-signout{background:#e04050!important}
   .nav-links{display:flex}
   .burger{display:none}
   .foot-grid{grid-template-columns:2fr 1fr 1fr}
