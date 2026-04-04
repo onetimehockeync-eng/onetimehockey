@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tricks — Silky Mitts Stickhandling Program | One Time Hockey</title>
+<meta name="description" content="Level 2 stickhandling tricks. Pancake pickup, toe pickup, scoop, forehand/backhand juggle, high juggle, stick walk, Zoro, windmill.">
+<link rel="stylesheet" href="css/style.css">
+
+
+<!-- Supabase + OTH auth -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/supabase.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/auth-ui.js"></script>
+</head>
+<body>
+
+<!-- ── OTH Auth Bar ─────────────────────────────────────────── -->
+<div id="oth-auth-bar"><div class="nav-inner">
+  <span id="oth-auth-status" style="opacity:.7">Save your progress across devices</span>
+  <div id="oth-auth-actions" style="display:flex;gap:.6rem;align-items:center">
+    <button onclick="OTHAuthUI.getCode()" style="background:rgba(255,255,255,.08);color:#fff;border:none;border-radius:6px;padding:.35rem .8rem;font-size:.8rem;cursor:pointer;font-family:inherit;white-space:nowrap;font-weight:500">Get a code</button>
+    <button onclick="OTHAuthUI.showPinEntry()" style="background:rgba(255,255,255,.08);color:#fff;border:none;border-radius:6px;padding:.35rem .8rem;font-size:.8rem;cursor:pointer;font-family:inherit;white-space:nowrap;font-weight:500">Enter code</button>
+    <button onclick="OTHAuthUI.showSignIn()" style="background:#e04050;color:#fff;border:none;border-radius:6px;padding:.35rem .8rem;font-size:.8rem;cursor:pointer;font-family:inherit;white-space:nowrap;font-weight:500">Sign in</button>
+  </div>
+</div></div>
+
+<!-- ── Auth Modal ───────────────────────────────────────────── -->
+<div id="oth-modal-bg" style="
+  display:none; position:fixed; inset:0; background:rgba(0,0,0,.7);
+  z-index:500; align-items:center; justify-content:center;">
+  <div style="
+    background:#0f1829; border:1px solid rgba(255,255,255,.1); border-radius:14px;
+    padding:2rem; width:min(420px,92vw); color:#e8eaf0; position:relative;
+    max-height:90vh; overflow-y:auto;">
+    <button onclick="OTHModal.close()" style="
+      position:absolute; top:1rem; right:1rem; background:none; border:none;
+      color:#aaa; font-size:1.3rem; cursor:pointer; line-height:1;">&#x2715;</button>
+    <div id="oth-modal-body"></div>
+  </div>
+</div>
+
+<nav class="nav"><div class="nav-inner">
+  <a href="index.html" class="nav-logo">OTH <span>·</span> Silky Mitts</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="foundation.html">Foundation</a></li>
+    <li><a href="advanced.html">Advanced</a></li>
+    <li><a href="tricks.html">Tricks</a></li>
+    <li><a href="guide.html" class="nav-cta">Full Guide</a></li>
+  </ul>
+  <button class="burger" aria-label="Open menu"><span></span><span></span><span></span></button>
+</div></nav>
+<div class="mob-overlay"><button class="mob-close">✕</button>
+  <!-- Auth in mobile menu -->
+  <div class="mob-auth">
+    <div class="mob-auth-status" id="mob-auth-status">Save your progress</div>
+    <div class="mob-auth-actions" id="mob-auth-actions">
+      <button class="mob-auth-btn mob-auth-btn-ghost" onclick="OTHAuthUI.getCode();OTHModal.close && closeMenu()">Get a code</button>
+      <button class="mob-auth-btn mob-auth-btn-ghost" onclick="OTHAuthUI.showPinEntry();closeMenu()">Enter code</button>
+      <button class="mob-auth-btn mob-auth-btn-primary" onclick="OTHAuthUI.showSignIn();closeMenu()">Sign in</button>
+    </div>
+  </div>
+  <div class="mob-overlay-divider"></div>
+
+  <a href="index.html">Home</a>
+  <a href="foundation.html">Foundation</a>
+  <a href="advanced.html">Advanced</a>
+  <a href="tricks.html">Tricks</a>
+  <a href="guide.html" class="mob-cta">Full Guide</a>
+</div>
+
+<section class="pg-hero" style="border-bottom:3px solid var(--gold)">
+  <div class="wrap">
+    <div class="level-badge badge-t">Level 3 — Tricks</div>
+    <h1 class="sec-title" style="color:var(--white);font-size:clamp(2.5rem,7vw,5rem);letter-spacing:.04em">Pickups.<br>Juggles. Control.</h1>
+    <p style="color:var(--ice-dim);margin-top:.75rem;font-size:1.02rem;max-width:560px;line-height:1.72">Pickups, juggles, and aerial blade control. Silky mitts are in your future.</p>
+    <div style="display:flex;gap:1rem;flex-wrap:wrap;margin-top:1.25rem">
+      <span style="font-family:var(--fc);font-size:.84rem;color:var(--ice-dim)">9 drills</span>
+      <span style="font-family:var(--fc);font-size:.84rem;color:var(--ice-dim)">·</span>
+      <span style="font-family:var(--fc);font-size:.84rem;color:var(--ice-dim)">Prerequisite: Foundation &amp; Advanced complete</span>
+      <span style="font-family:var(--fc);font-size:.84rem;color:var(--ice-dim)">·</span><span style="font-family:var(--fc);font-size:.84rem;color:var(--ice-dim)">Clean reps = Showtime </span>
+    </div>
+  </div>
+</section>
+
+<section class="sec-sm bg-nmd">
+  <div class="wrap">
+    <div class="prog-section">
+      <div class="prog-top"><span class="prog-title">Overall Progress</span><span class="prog-count" id="prog-count">0/24</span></div>
+      <div class="prog-track"><div class="prog-fill" id="prog-fill"></div></div>
+      <div class="prog-sub" id="prog-label">Check off each drill when you can do it eyes-up at speed</div>
+      <div class="prog-levels">
+        <div class="prog-level"><div class="prog-level-val" id="prog-foundation">0/8</div><div class="prog-level-lbl">Foundation</div></div>
+        <div class="prog-level"><div class="prog-level-val" id="prog-advanced">0/6</div><div class="prog-level-lbl">Advanced</div></div>
+        <div class="prog-level"><div class="prog-level-val" id="prog-tricks">0/9</div><div class="prog-level-lbl">Tricks</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" style="background:var(--navy);padding-top:2.5rem">
+  <div class="wrap">
+    <p style="font-family:var(--fc);font-size:.9rem;color:var(--ice-dim);margin-bottom:1.5rem">Click any card to expand step-by-step instructions. Check the circle when mastered eyes-up at game speed. Video demonstrations shown on each card — tap play when available.</p>
+    <div class="drill-grid" id="grid-tricks"></div>
+    <div style="text-align:center;margin-top:1.5rem;padding:1.75rem;background:var(--navy-md);border-radius:12px;border:1px solid rgba(255,255,255,.07)">
+      <div style="font-family:var(--fd);font-size:2.5rem;letter-spacing:.06em;color:var(--gold);margin-bottom:.5rem">24</div>
+      <p style="font-family:var(--fc);font-size:.95rem;color:var(--ice-dim);margin-bottom:1.25rem">Own all 24 drills eyes-up at game speed and you will have puck confidence that cannot be taken from you. Book a lane and put it to work.</p>
+      <a href="../book.html" class="btn btn-red">Book the Montreal Lane →</a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer"><div class="wrap"><div class="foot-grid">
+  <div><div class="foot-logo">One Time <span>Hockey</span></div><p class="foot-tagline">"You may only get 'One Time' to score in a game. Will you be ready?"</p></div>
+  <div><div class="foot-hdg">OTH Silky Mitts</div><ul class="foot-links">
+    <li><a href="index.html">Overview</a></li>
+    <li><a href="foundation.html">Foundation</a></li>
+    <li><a href="advanced.html">Advanced</a></li>
+    <li><a href="tricks.html">Tricks</a></li>
+    <li><a href="guide.html">Full Guide</a></li>
+  </ul></div>
+  <div><div class="foot-hdg">Facility</div><ul class="foot-links">
+    <li><a href="../index.html">OTH Home</a></li>
+    <li><a href="../lanes.html">The Six Lanes</a></li>
+    <li><a href="../book.html">Book a Lane</a></li>
+    <li><a href="../pricing.html">Pricing</a></li>
+    <li><a href="../contact.html">Contact</a></li>
+  </ul></div>
+</div></div><div class="foot-bar"><div class="wrap">© 2026 One Time Hockey LLC · Raleigh, NC · Silky Mitts Stickhandling Program</div></div></footer>
+<script src="js/main.js"></script>
+</body>
+</html>
