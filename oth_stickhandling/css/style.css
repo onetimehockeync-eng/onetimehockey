@@ -76,6 +76,7 @@ button{cursor:pointer;border:none;font:inherit}
 .mob-auth-btn{font-family:var(--fc);font-weight:600;font-size:.9rem;letter-spacing:.04em;border:none;border-radius:6px;padding:.45rem 1rem;cursor:pointer;white-space:nowrap}
 .mob-auth-btn-ghost{background:rgba(255,255,255,.1);color:#fff}
 .mob-auth-btn-primary{background:var(--green);color:#fff}
+.mob-auth-btn-danger{background:#e04050;color:#fff}
 .mob-auth-avatar{width:28px;height:28px;border-radius:50%;object-fit:cover}
 .mob-auth-initial{width:28px;height:28px;border-radius:50%;background:var(--green);color:#fff;font-size:.8rem;font-weight:700;display:flex;align-items:center;justify-content:center}
 .mob-overlay-divider{width:60%;height:1px;background:rgba(255,255,255,.1);margin:.5rem 0}

@@ -113,7 +113,7 @@
         ? `<img src="${avatar}" class="mob-auth-avatar">`
         : `<div class="mob-auth-initial">${initial}</div>`;
       mobStatus.innerHTML = `<div style="display:flex;align-items:center;gap:.5rem;justify-content:center">${avatarHTML}<span>${email}</span></div>`;
-      mobActions.innerHTML = `<button class="mob-auth-btn mob-auth-btn-primary" onclick="OTHAuthUI.signOut()">Sign out</button>`;
+      mobActions.innerHTML = `<button class="mob-auth-btn mob-auth-btn-danger" onclick="OTHAuthUI.signOut()">Sign out</button>`;
 
     } else if (mode === 'pin') {
       const pin = A().getPin();
