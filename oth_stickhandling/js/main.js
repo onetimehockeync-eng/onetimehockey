@@ -32,7 +32,7 @@ const FOUNDATION = [
   },
   {
     id:'F2', name:'Side to Side — Full Reach', tag:'foundation', duration:'30 sec / 3 sets',
-    desc:'Reach the puck as far as possible outside each foot. The full range provides puck protection.',
+    desc:'Reach the puck as far as possible but keep both hands on the stick. The full range provides puck protection.',
     steps:[
       'Start with puck centered in front of you',
       'Reach puck all the way to FH side — extend arms',
@@ -71,7 +71,7 @@ const FOUNDATION = [
   },
   {
     id:'F5', name:'Quick Handles', tag:'foundation', duration:'30 sec / 3 sets',
-    desc:'Rapid short taps cupping the blade over the puck. Builds vibration sensitivity — the ability to feel the puch without watching it.',
+    desc:'Rapid short taps cupping the blade over the puck. Builds vibration sensitivity — the ability to feel the puck without watching it.',
     steps:[
       'Cup stick blade over the puck — like cupping a ball with your palm',
       'Tap puck back and forth in tiny strokes — 4 to 6 inches each side',
@@ -489,9 +489,17 @@ function buildGrid(level){
 const burger  = document.querySelector('.burger');
 const overlay = document.querySelector('.mob-overlay');
 const closeBtn= document.querySelector('.mob-close');
-function openMenu(){ if(overlay){ overlay.classList.add('open'); document.body.style.overflow='hidden'; }}
-function closeMenu(){ if(overlay){ overlay.classList.remove('open'); document.body.style.overflow=''; }}
-if(burger)  burger.addEventListener('click', openMenu);
+function openMenu(){
+  if(overlay){ overlay.classList.add('open'); document.body.style.overflow='hidden'; }
+  if(burger){ burger.classList.add('open'); }
+}
+function closeMenu(){
+  if(overlay){ overlay.classList.remove('open'); document.body.style.overflow=''; }
+  if(burger){ burger.classList.remove('open'); }
+}
+if(burger) burger.addEventListener('click', function(){
+  overlay && overlay.classList.contains('open') ? closeMenu() : openMenu();
+});
 if(closeBtn) closeBtn.addEventListener('click', closeMenu);
 if(overlay) overlay.querySelectorAll('a').forEach(a=>a.addEventListener('click', closeMenu));
 

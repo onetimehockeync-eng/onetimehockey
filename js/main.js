@@ -14,9 +14,17 @@
   var burger  = document.querySelector('.burger');
   var overlay = document.querySelector('.nav-overlay');
   var closeBtn= document.querySelector('.nav-close');
-  function openMenu(){ if(overlay){ overlay.classList.add('open'); document.body.style.overflow='hidden'; } }
-  function closeMenu(){ if(overlay){ overlay.classList.remove('open'); document.body.style.overflow=''; } }
-  if(burger)  burger.addEventListener('click', openMenu);
+  function openMenu(){
+  if(overlay){ overlay.classList.add('open'); document.body.style.overflow='hidden'; }
+  if(burger){ burger.classList.add('open'); }
+}
+function closeMenu(){
+  if(overlay){ overlay.classList.remove('open'); document.body.style.overflow=''; }
+  if(burger){ burger.classList.remove('open'); }
+}
+  if(burger) burger.addEventListener('click', function(){
+  overlay && overlay.classList.contains('open') ? closeMenu() : openMenu();
+});
   if(closeBtn) closeBtn.addEventListener('click', closeMenu);
   if(overlay) overlay.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', closeMenu); });
 

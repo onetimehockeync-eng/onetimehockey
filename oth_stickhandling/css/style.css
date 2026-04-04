@@ -45,6 +45,10 @@ button{cursor:pointer;border:none;font:inherit}
 .nav-cta:hover{background:var(--red-dk)!important}
 .burger{display:flex;flex-direction:column;gap:5px;padding:8px;background:transparent}
 .burger span{display:block;width:22px;height:2px;background:var(--white);border-radius:2px}
+.burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.burger.open span:nth-child(2){opacity:0;transform:scaleX(0)}
+.burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.burger span{transition:transform .25s ease, opacity .2s ease}
 .mob-overlay{display:none;position:fixed;inset:0;background:var(--navy);z-index:99;flex-direction:column;align-items:center;justify-content:center;gap:.4rem;padding-top:60px}
 .mob-overlay.open{display:flex}
 .mob-overlay a{font-family:var(--fd);font-size:2.2rem;letter-spacing:.06em;color:var(--white)}
