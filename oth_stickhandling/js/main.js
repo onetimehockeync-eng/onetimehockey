@@ -77,7 +77,7 @@ const FOUNDATION = [
       'Tap puck back and forth in tiny strokes — 4 to 6 inches each side',
       'Active Top Hand',
       'Gradually increase speed while maintaining feel and control',
-      'Push to max speed — timer challenge each set'
+      'Push to max speed'
     ],
     tip:'These look like micro-handles before a big deke. That\'s exactly what they are — feel-builders. This is all about the top hand. Don\'t tighten your shoulder. Stay loose. Rotate your top hand to catch the puck — don\'t chop at it.',
     keyPoints:['Top Hand Manipulation','Bottom Hand Support','Conditioning'],
@@ -100,7 +100,7 @@ const FOUNDATION = [
     desc:'Place 2 pucks/small objects 18" apart. Peform continuous figure-8 stickhandling. It is ok to look at the puck on this one.',
     steps:[
       'Set two small objects approximately 18 inches apart',
-      'Stickhandle around the forehand puck and then around the backhand puck',
+      'Stickhandle around the forehand object and then around the backhand object',
       'Create a smooth figure-8 — no hesitation at the crossover point = 1 dangle',
       'Progress: Once you can get 15 dangles reduce the distance to 12"'
     ],
@@ -115,7 +115,7 @@ const FOUNDATION = [
       'Drop 6-8 small objects randomly — no pattern',
       'Try not to look down. Use peripheral vision.',
       'Stickhandle through the obstacles — any route, any speed, any move',
-      'Touch an object = 5 pushups, each touch, after the set'
+      'Touch an object = 5 push ups after the set.
     ],
     tip:'Eyes-up. Every rep where you look down is anti-training — you are reinforcing the wrong habit. Your brain knows where the obstacles are. Trust your hands to find the way.',
     keyPoints:['Top Hand Manipulation','Bottom Hand Support','Blade Manipulation','Conditioning','Creativity','Lateral Movement'],
@@ -267,7 +267,7 @@ const TRICKS = [
 const ADVANCED = [
   {
     id:'A1', name:'Shot Fake — Forehand to Backhand', tag:'game', duration:'10 reps / 3 sets',
-    desc:'Load like you\'re shooting, kill it dead, take it to backhand. Foundational deception move — makes every other deke more effective because the defender learns to respect your shot.',
+    desc:'Load like you\'re shooting, kill it dead, take it to backhand. Foundational deception move — makes every other deke more effective because the defender learns to respect your hands.',
     steps:[
       'Move puck to forehand side, load your body weight for a shot',
       'Sell the fake — head shifts, shoulder drops, weight transfers',
@@ -293,7 +293,7 @@ const ADVANCED = [
   },
   {
     id:'A3', name:'Jump Deke — Chip Over Stick', tag:'game', duration:'3 reps / 3 sets (FH & BH)',
-    desc:'Lay a stick on the ice to simulate a poke check. Chip the puck over it — forehand and backhand. The move that destroys poke-checkers once defenders know you can do it.',
+    desc:'Lay a stick on the ice to simulate a poke check. Lift the puck over it — forehand and backhand. The move that destroys poke-checkers once defenders know you can do it.',
     steps:[
       'Forehand (FH): handles on FH side, pick the puck up and move it across your body over the obstacle',
       'Backhand (BH): Toe drag to BH, BH sauce over the obstacle back to the FH side',
@@ -305,7 +305,7 @@ const ADVANCED = [
   },
   {
     id:'A4', name:'Wall Ball — Heads Up Pass/Receive', tag:'game', duration:'30 seconds / 3 sets',
-    desc:'Find a wall and pass and receive with your head up — both forehand and backhand. Trains the receive-deke connection all game situations demand.',
+    desc:'Find a wall to pass and receive with your head up — both forehand and backhand. Trains the receive-deke connection all game situations demand.',
     steps:[
       'Pass puck against a rebound surface',
       'Receive the pass — cushion it, don\'t stab at it',
@@ -313,7 +313,7 @@ const ADVANCED = [
       'Both forehand and backhand passing and receiving',
       'If you find a corner you can work FH & BH simultaneously'
     ],
-    tip:'Be smooth and find a rhythm. If you can find a corner you can work on angled passes as well. Head up the entire time.',
+    tip:'Be smooth and find a rhythm. Head up.',
     keyPoints:['Top Hand Manipulation','Bottom Hand Support','Conditioning','Rhythm','Scanning'],
     video: "https://www.youtube.com/embed/cKzGmnM-qtQ"
   },
@@ -322,7 +322,7 @@ const ADVANCED = [
     desc:'Five feet from the rebound surface. One-touch passing between you and the wall as fast as possible. Conditions fast hands and immediate puck release under pressure.',
     steps:[
       'Position 5 feet from the wall',
-      'Hard passes — aim for a specific spot on the wall',
+      'Firm passes — aim for a specific spot on the wall',
       'React fast to the rebound',
       'One-touch passing — no settling',
       'Find a rhythm and then push harder each set'
@@ -339,9 +339,9 @@ const ADVANCED = [
       'Bounce the ball off your blade at least 50 consecutive times',
       'Keep your eyes on the ball at all times',
       'Stay relaxed — tense shoulders kill your touch',
-      'Progress: try to beat your personal record each session'
+      'Progress: try to beat your personal record each session.'
     ],
-    tip:'Concentrate. Relax your shoulders. A tennis ball is lighter and bouncier than a puck — it demands greater blade sensitivity. Players who can juggle 50+ reps have blade feel that shows in every other drill.',
+    tip:'Concentrate. Relax your shoulders. A tennis ball is lighter and bouncier than a puck — it demands greater blade sensitivity. Players who can juggle 50+ reps have blade feel that shows in every other drill. Once you can get 50 incorporate a shaft juggle every 10.',
     keyPoints:['Bottom Hand Support','Blade Manipulation','Rhythm','Trick'],
     video: "https://www.youtube.com/embed/toJjONlltVE"
   }
