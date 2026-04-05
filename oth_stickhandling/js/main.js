@@ -85,7 +85,7 @@ const FOUNDATION = [
   },
   {
     id:'F6', name:'Top-Hand Only', tag:'conditioning', duration:'30 sec / 3 sets',
-    desc:'Dribble with top hand only. Remove the bottom hand entirely. The single most efficient drill for building forearm and wrist strength. All handles depend on this muscle.',
+    desc:'Handles with top hand only. Remove the bottom hand entirely. The single most efficient drill for building forearm and wrist strength. All handles depend on this muscle.',
     steps:[
       'Remove bottom hand — hold stick with top hand only at the knob',
       'Quick handles using only top hand rotation',
@@ -97,17 +97,16 @@ const FOUNDATION = [
   },
   {
     id:'F7', name:'Dangles', tag:'foundation', duration:'30 sec / 4 sets',
-    desc:'Place 2 pucks/small objects 18" apart. Peform continuous figure-8 stickhandling. One of the most validated drills in player development — NHL coaches prescribe this daily.',
+    desc:'Place 2 pucks/small objects 18" apart. Peform continuous figure-8 stickhandling. It is ok to look at the puck on this one.',
     steps:[
       'Set two small objects approximately 18 inches apart',
       'Stickhandle around the forehand puck and then around the backhand puck',
       'Create a smooth figure-8 — no hesitation at the crossover point = 1 dangle',
-      'Reverse direction after each set',
       'Progress: Once you can get 15 dangles reduce the distance to 12"'
     ],
     tip:'Stay loose and find a rhythm. Don\'t forget to move your feet. The crossover transition is where most players hesitate — that hesitation is what you\'re trying to eliminate.',
     keyPoints:['Top Hand Manipulation','Bottom Hand Support','Blade Manipulation','Rhythm'],
-    video: "https://www.youtube.com/embed/hcVLp5Z3TlU?list=PL_f4vCOPsvwY_ZtGn3QkCdj2P57h4RDpj"
+    video: "https://www.youtube.com/embed/hcVLp5Z3TlU"
   },
   {
     id:'F8', name:'Minefield — Eyes Up', tag:'game', duration:'30 sec / 3 sets',
@@ -120,7 +119,7 @@ const FOUNDATION = [
     ],
     tip:'Eyes-up. Every rep where you look down is anti-training — you are reinforcing the wrong habit. Your brain knows where the obstacles are. Trust your hands to find the way.',
     keyPoints:['Top Hand Manipulation','Bottom Hand Support','Blade Manipulation','Conditioning','Creativity','Lateral Movement'],
-    video: "https://www.youtube.com/embed/T8jBJ31vclk?list=PL_f4vCOPsvwY_ZtGn3QkCdj2P57h4RDpj"
+    video: "https://www.youtube.com/embed/T8jBJ31vclk"
   },
   {
     id:'F9', name:'Flowstyle', tag:'game', duration:'30 sec / 3 sets',
@@ -149,7 +148,7 @@ const TRICKS = [
     ],
     tip:'The scoop and hold IS the entire skill. Lower your hands and knees together — the blade angle and pressure on the back side of the puck are key.',
     keyPoints:['Top Hand Manipulation','Bottom Hand Support','Blade Manipulation','Trick'],
-    video: "https://www.youtube.com/embed/guHRro-VeWo?list=PL_f4vCOPsvwYASb38Mjm-76orGYYmNhcz"
+    video: "https://www.youtube.com/embed/guHRro-VeWo"
   },
   {
     id:'T2', name:'Toe Pickup', tag:'trick', duration:'10 pickups',
@@ -163,7 +162,7 @@ const TRICKS = [
     ],
     tip:'This pickup can be done more easily while skating because the puck can be picked up while moving. Practice stationary first until the wrist motion is automatic.',
     keyPoints:['Top Hand Manipulation','Bottom Hand Support','Blade Manipulation','Trick'],
-    video: "https://www.youtube.com/embed/pkfzNaSj6CE?list=PL_f4vCOPsvwYASb38Mjm-76orGYYmNhcz"
+    video: "https://www.youtube.com/embed/pkfzNaSj6CE"
   },
   {
     id:'T3', name:'Scoop Pickup', tag:'trick', duration:'10 pickups',
@@ -177,7 +176,7 @@ const TRICKS = [
     ],
     tip:'This is much easier on ice while moving because the skating momentum helps slice under the puck. Work the stationary version until the blade angle is automatic.',
     keyPoints:['Top Hand Manipulation','Bottom Hand Support','Blade Manipulation','Trick'],
-    video: "https://www.youtube.com/embed/BLXhfOFyO9I?list=PL_f4vCOPsvwYASb38Mjm-76orGYYmNhcz"
+    video: "https://www.youtube.com/embed/BLXhfOFyO9I"
   },
   {
     id:'T4', name:'Forehand Juggle', tag:'trick', duration:'10 juggles',
@@ -205,7 +204,7 @@ const TRICKS = [
     ],
     tip:'The goal is 10 complete juggles for both FH and BH. Rotate your hands and stick early to prepare for the catch — don\'t wait until the puck is already falling.',
     keyPoints:['Top Hand Manipulation','Bottom Hand Support','Blade Manipulation','Rhythm','Trick'],
-    video: "https://www.youtube.com/embed/shxp5_0G50A?list=PL_f4vCOPsvwYASb38Mjm-76orGYYmNhcz"
+    video: "https://www.youtube.com/embed/shxp5_0G50A"
   },
   {
     id:'T6', name:'High Juggle', tag:'trick', duration:'10 juggles',
@@ -278,7 +277,7 @@ const ADVANCED = [
     ],
     tip:'Be sure to fake and sell the shot. If the defender doesn\'t believe you will shoot, they won\'t bite. The fake has to look 100% like a real shot until the moment you kill it.',
     keyPoints:['Top Hand Manipulation','Bottom Hand Support','Blade Manipulation','Deception'],
-    video: "https://www.youtube.com/embed/Z1KqWcQtxHk?list=PL_f4vCOPsvwaEwIKWGiWnB9irY5OwBd_6"
+    video: "https://www.youtube.com/embed/Z1KqWcQtxHk"
   },
   {
     id:'A2', name:'Between-the-Legs', tag:'game', duration:'10 reps / 3 sets (each variation)',
